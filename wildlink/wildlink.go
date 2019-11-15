@@ -20,6 +20,7 @@ type Client struct {
 	device         *Device
 	DeviceService  *DeviceService
 	ConceptService *ConceptService
+	NLPService     *NLPService
 }
 
 func init() {
@@ -36,6 +37,7 @@ func NewClient(httpClient *http.Client) *Client {
 	c.sling = base
 	c.DeviceService = newDeviceService(c, base.New())
 	c.ConceptService = newConceptService(c, base.New())
+	c.NLPService = newNLPService(c, base.New())
 	return c
 }
 
