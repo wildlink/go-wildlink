@@ -102,7 +102,5 @@ func (c *conceptIter) Next() bool {
 }
 
 func (s *ConceptService) List(params *ConceptListParams) (ConceptIterator, error) {
-	sling := s.c.sling.New().Path("v2/concept")
-	return &conceptIter{params: params, client: s.c, sling: sling}, nil
-
+	return &conceptIter{params: params, client: s.c, sling: s.sling}, nil
 }
